@@ -8,8 +8,8 @@
 <body <?php body_class(); ?>>
 
 <div id="outer-wrapper">
-    <div id="header-wrap">
-        <div class="container row" style="display:flex; justify-content:space-between; align-items:center;">
+    <header id="header-wrap">
+        <div class="container header-inner">
             <div class="header-logo">
                 <h1>
                     <a href="<?php echo home_url(); ?>">
@@ -18,19 +18,22 @@
                 </h1>
             </div>
             
-            <div class="header-menu">
-                <nav id="main-menu">
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'primary',
-                        'container' => false,
-                        'menu_class' => 'menu-list',
-                    ));
-                    ?>
-                </nav>
-            </div>
+            <button id="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav id="main-menu">
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'container' => false,
+                    'menu_class' => 'menu-list',
+                    'fallback_cb' => false 
+                ));
+                ?>
+            </nav>
         </div>
-    </div>
+    </header>
     
     <div id="content-outer-wrapper">
         <div id="content-wrapper" class="row">
